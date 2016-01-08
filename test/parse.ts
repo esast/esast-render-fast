@@ -1,6 +1,6 @@
 import {parse as acornParse} from 'acorn'
-import Node from 'esast/lib/ast'
-import fromJson from 'esast-from-json/from-json'
+import Node from 'esast/lib/Node'
+import fromJson from 'esast-from-json/lib/fromJSON'
 
 /**
 Parses source code.

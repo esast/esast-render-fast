@@ -11,10 +11,14 @@ Output is not very pretty. For beauty use [escodegen](https://github.com/estools
 
 ## Use
 
-	import {BinaryExpression, Literal} from 'esast/lib/ast'
-	import {renderWithSourceMap} from 'esast-render-fast/lib/render'
+	import {BinaryExpression, LiteralNumber} from 'esast/lib/Expression'
+	import render, {renderWithSourceMap} from 'esast-render-fast/lib/render'
 
-	const four = new BinaryExpression('+', new Literal(2), new Literal(2))
+	const four = new BinaryExpression('+', new LiteralNumber(2), new LiteralNumber(2))
+
+	const rendered = render(four, {ugly: false})
+
+	// four.left.loc = ...; four.right.loc = ...; four.loc = ...
 	const {code, sourceMap} = renderWithSourcemap(four, 'input-file.xyz', 'output-file.js', {ugly: false})
 
 ## Time
@@ -23,7 +27,7 @@ Here are estimates of rendering time when run on a sample tree (the escodegen so
 
 Name | Render time | Render time with source maps
 :-: | :-: | :-:
-esast-render-fast | 1.5ms | 17ms
+esast-render-fast | 8ms | 32ms
 [escodegen](https://github.com/estools/escodegen) | 7ms | 120ms
 [esotope](https://github.com/inikulin/esotope) | 2.5ms | not supported
 

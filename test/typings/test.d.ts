@@ -8,7 +8,7 @@ declare function describe(desc: string, test: () => void): void
 declare function it(desc: string, test: () => void): void
 
 declare module 'acorn' {
-	function parse(_: string, options: Object): Object
+	export function parse(_: string, options: Object): Object
 }
 
 declare module 'benchmark' {
@@ -20,15 +20,15 @@ declare module 'benchmark' {
 }
 
 declare module 'escodegen' {
-	function generate(_: any, options?: any): string
+	export function generate(_: any, options?: any): string
 }
 
 declare module 'esotope' {
-	function generate(_: any): string
+	export function generate(_: any): string
 }
 
 declare module 'fs' {
-	function readFileSync(file: string, encoding: string): string
+	export function readFileSync(file: string, encoding: string): string
 }
 
 declare const module: any

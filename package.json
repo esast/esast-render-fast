@@ -10,9 +10,9 @@
 		"watch": "gulp watch-src",
 		"build-test": "gulp build-test",
 		"watch-test": "gulp watch-test",
-		"test": "mocha compiled-test/*.js",
+		"test": "mocha compiled-test/*.js compiled-test/*/*.js",
 		"perf-test": "node compiled-test/perf-test",
-		"TODO-lint": "tslint src/*.ts",
+		"lint": "tslint src/*.ts src/*/*.ts test/*.ts test/*/*.ts",
 		"TODO-doc": "typedoc src --out doc",
 		"TODO-all": "npm run build && npm run build-test && npm run test && npm run lint && npm run doc"
 	},
@@ -22,17 +22,12 @@
 		"source-map": "mozilla/source-map"
 	},
 	"devDependencies": {
-		"babel-plugin-transform-es2015-destructuring": "6.3.15",
-		"babel-plugin-transform-es2015-parameters": "6.3.26",
 		"gulp": "3.9.0",
-		"gulp-babel": "6.1.1",
-		"gulp-sourcemaps": "1.6.0",
-		"gulp-typescript": "2.10.0",
-		"merge2": "0.3.6",
+		"gulp-typescript-esast": "esast/gulp-typescript-esast",
 		"mocha": "2.3.4",
-		"tslint": "3.2.1",
+		"tslint": "3.3.0",
+		"tslint-config-esast": "esast/tslint-config-esast",
 		"typedoc": "0.3.12",
-		"typescript": "1.8.0-dev.20160104",
 
 		"esast-from-json": "esast/esast-from-json",
 		"acorn": "2.7.0",
